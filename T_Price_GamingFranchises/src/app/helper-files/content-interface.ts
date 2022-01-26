@@ -1,6 +1,6 @@
 // Interface that will handle Content variables
 
-interface Content {
+export interface Content {
     id: number;
     title: string;
     description: string;
