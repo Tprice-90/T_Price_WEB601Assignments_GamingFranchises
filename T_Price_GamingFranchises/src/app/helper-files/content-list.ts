@@ -1,6 +1,6 @@
 import { Content } from '../helper-files/content-interface';
 
-class ContentList {
+export class ContentList {
     private _items: Content[];
     constructor(item: Content) {
         this._items = [];
@@ -21,7 +21,7 @@ class ContentList {
 
     contentOutput(_items: Content[]) {
         _items.forEach(e => {
-            return `<h1>Title: ${e.title}</h1> <img src='${e.imgURL}' /> <h2>Creator: ${e.creator}</h2> <h3>Type: ${e.type}</h3> <p>${e.description}</p>`
+            `<h1>Title: ${e.title}</h1> <img src='${e.imgURL}' /> <h2>Creator: ${e.creator}</h2> <h3>Type: ${e.type}</h3> <p>${e.description}</p>`
         });
     }
 }
