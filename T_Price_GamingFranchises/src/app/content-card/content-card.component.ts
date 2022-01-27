@@ -36,7 +36,7 @@ export class ContentCardComponent implements OnInit {
       title: 'Grand Theft Auto',
       description: 'An open world third person shooter series',
       creator: 'Rockstar',
-      imgURL: 'https://cdn.mos.cms.futurecdn.net/r3rMKZge6NtmYVXzwNzCm6-320-80.jpg',
+      imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Grand_Theft_Auto_logo_series.svg/250px-Grand_Theft_Auto_logo_series.svg.png',
       type: 'Third Person Shooter',
       tags: ['Third Person Shooter', 'Crime', 'Open-world']
     };

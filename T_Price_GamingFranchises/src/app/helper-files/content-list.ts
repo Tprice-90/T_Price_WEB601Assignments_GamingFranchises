@@ -12,8 +12,8 @@ export class ContentList {
         return this._items;
     }
 
-    setItems(item: Content){
-        this._items.push(item);
+    setItems(newItem: Content){
+        this._items.push(newItem);
     }
 
     itemLength() {
@@ -21,9 +21,13 @@ export class ContentList {
     }
 
     contentOutput(index: Content) {
-        let item = this._items.find(e => e = index);
+        let item = this._items.find(e => e == index);
         if(item) {
-            return `<h1>${item.title}</h1> <img src ='${item.imgURL}' alt='${item.title}' /> <h2>${item.creator}</h2> <h3>${item.type}</h3> <p>${item.description}</p>`;
+            return `<h1>Title: ${item.title}</h1> 
+                    <img src ='${item.imgURL}' alt='${item.title}' />  
+                    <h2>Creator: ${item.creator}</h2> 
+                    <h3>Type: ${item.type}</h3> 
+                    <p>${item.description}</p>`;
         }
         else {
             return `<h1>Content not found</h1>`
