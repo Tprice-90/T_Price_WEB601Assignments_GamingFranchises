@@ -41,6 +41,8 @@ export class ContentCardComponent implements OnInit {
       tags: ['Third Person Shooter', 'Crime', 'Open-world']
     };
     this.contentList = new ContentList(this.fallout);
+    this.contentList.setItems(this.superMario);
+    this.contentList.setItems(this.gta);
   }
 
   ngOnInit(): void {

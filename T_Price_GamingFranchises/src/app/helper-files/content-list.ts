@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Content } from '../helper-files/content-interface';
 
 export class ContentList {
@@ -11,17 +12,21 @@ export class ContentList {
         return this._items;
     }
 
-    set items(newItem: Content[]) {
-        this._items = newItem;
+    setItems(item: Content){
+        this._items.push(item);
     }
 
     itemLength() {
         return this._items.length;
     }
 
-    contentOutput(_items: Content[]) {
-        _items.forEach(e => {
-            `<h1>Title: ${e.title}</h1> <img src='${e.imgURL}' /> <h2>Creator: ${e.creator}</h2> <h3>Type: ${e.type}</h3> <p>${e.description}</p>`
-        });
+    contentOutput(index: Content) {
+        let item = this._items.find(e => e = index);
+        if(item) {
+            return `<h1>${item.title}</h1> <img src ='${item.imgURL}' alt='${item.title}' /> <h2>${item.creator}</h2> <h3>${item.type}</h3> <p>${item.description}</p>`;
+        }
+        else {
+            return `<h1>Content not found</h1>`
+        }
     }
 }
