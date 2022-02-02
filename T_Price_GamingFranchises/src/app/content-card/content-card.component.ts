@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { ContentList } from '../helper-files/content-list';
+import { ContentListComponent } from '../content-list/content-list.component';
 
 @Component({
   selector: 'app-content-card',
@@ -11,7 +11,7 @@ export class ContentCardComponent implements OnInit {
   fallout: Content;
   superMario: Content;
   gta: Content;
-  contentList: ContentList;
+  //contentList: ContentListComponent;
   constructor() {
     this.fallout = {
       id: 1,
@@ -40,9 +40,10 @@ export class ContentCardComponent implements OnInit {
       type: 'Third Person Shooter',
       tags: ['Third Person Shooter', 'Crime', 'Open-world']
     };
-    this.contentList = new ContentList(this.fallout);
-    this.contentList.setItems(this.superMario);
-    this.contentList.setItems(this.gta);
+    
+    //this.contentList = new ContentList(this.fallout);
+    //this.contentList.setItems(this.superMario);
+    //this.contentList.setItems(this.gta);
   }
 
   ngOnInit(): void {
