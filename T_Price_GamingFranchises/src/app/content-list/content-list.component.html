@@ -1,1 +1,8 @@
-<p>content-list works!</p>
+<div *ngFor="let item of contentList.slice(0, 5); first as isFirst"[class.first]='isFirst'>
+    <h1>{{ item.title }}</h1>
+    <img [src]='item.imgURL' [alt]='item.title' width="400" (click)="logItem(item.id, item.title)"/>
+    <h2>Creator: {{ item.creator }}</h2>
+    <h3>Game Type: {{ item ? item.type : "" }}</h3>
+    <p class="description">{{ item ? item.description : ""}}</p>
+    <p class="tags">Tags: {{ item ? item.tags?.join(", ") : ""}}</p>
+</div>

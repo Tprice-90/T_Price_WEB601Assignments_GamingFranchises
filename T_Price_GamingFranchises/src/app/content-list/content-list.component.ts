@@ -22,7 +22,7 @@ export class ContentListComponent implements OnInit {
       title: 'Super Mario',
       description: 'A Plumber\'s journey through the mushroom kingdom takes him to many magical worlds.',
       creator: 'Nintendo',
-      imgURL: 'https://assets.nintendo.com/image/upload/f_auto,q_auto/ncom/en_US/merchandising/curated%20list/Jump%20for%20joy%20with%20Super%20Mario/515x325_gameStore_mario?v=2021120201',
+      //imgURL: 'https://assets.nintendo.com/image/upload/f_auto,q_auto/ncom/en_US/merchandising/curated%20list/Jump%20for%20joy%20with%20Super%20Mario/515x325_gameStore_mario?v=2021120201',
       type: 'Platform',
       tags: ['Platform', 'Side-scroller', 'All Ages']
     },
@@ -42,7 +42,7 @@ export class ContentListComponent implements OnInit {
       creator: 'Bethesda',
       imgURL: 'https://img.g2a.com/1080x1080/1x1x0/the-elder-scrolls-online-the-elder-scrolls-online-key-global/5cefd99d7e696c78e172ec02',
       type: 'RPG',
-      tags: ['RPG', 'Fantasy', 'Open-world']
+      //tags: ['RPG', 'Fantasy', 'Open-world']
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ export class ContentListComponent implements OnInit {
       description: 'Your gang has fallen on hard times. Venture through this Cowboy adventure and try to survive in the open wilds.',
       creator: 'Rockstar',
       imgURL: 'https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption.jpg',
-      type: 'Third-Person Shooter',
+      //type: 'Third Person Shooter',
       tags: ['Third Person Shooter', 'Cowboy', 'Open-world']
     },
     {
@@ -61,10 +61,11 @@ export class ContentListComponent implements OnInit {
       imgURL: 'https://cdn.europosters.eu/image/1300/posters/mortal-kombat-dragon-i104638.jpg',
       type: 'Tournament Fighter',
       tags: ['Fighter', 'Graphic', 'Violent']
-    }
-    ];
-   }
-
+    }];
+  }
+  logItem(itemId: number, itemTitle: string) {
+    console.log(`Title: ${itemTitle}, ID: ${itemId}`)
+  }
   ngOnInit(): void {
   }
 
