@@ -63,9 +63,7 @@ export class ContentListComponent implements OnInit {
       tags: ['Fighter', 'Graphic', 'Violent']
     }];
   }
-  logItem(itemId: number, itemTitle: string) {
-    console.log(`Title: ${itemTitle}, ID: ${itemId}`)
-  }
+  
   ngOnInit(): void {
   }
 

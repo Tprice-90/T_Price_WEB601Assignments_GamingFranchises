@@ -1,1 +1,13 @@
 <!--The Main Page-->
+<h1>{{ game?.title }}</h1>
+<img *ngIf="game?.imgURL" [src]='game?.imgURL' [alt]='game?.title' width="400" (click)="logItem()"/>
+<p class="description">{{ game ? game?.description : ""}}</p>
+<div class="meta-content">
+    <h2>Creator: {{ game?.creator }}</h2>
+    <h3 *ngIf="game?.type">Game Type: {{ game ? game?.type : "" }}</h3>
+    <div class="tags" *ngIf="game?.tags">
+        <span class="tag" *ngFor="let tag of game?.tags">
+            {{ tag }}
+        </span>
+    </div>
+</div>
