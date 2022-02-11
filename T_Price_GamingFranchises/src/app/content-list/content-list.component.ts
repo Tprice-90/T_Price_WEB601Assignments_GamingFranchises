@@ -32,7 +32,7 @@ export class ContentListComponent implements OnInit {
       description: 'Take on the role of a low-level thug and work your way up to the top of the criminal world.',
       creator: 'Rockstar',
       imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Grand_Theft_Auto_logo_series.svg/250px-Grand_Theft_Auto_logo_series.svg.png',
-      type: 'Third-Person Shooter',
+      type: 'Third Person Shooter',
       tags: ['Third Person Shooter', 'Crime', 'Open-world']
     },
     {
@@ -50,7 +50,7 @@ export class ContentListComponent implements OnInit {
       description: 'Your gang has fallen on hard times. Venture through this Cowboy adventure and try to survive in the open wilds.',
       creator: 'Rockstar',
       imgURL: 'https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption.jpg',
-      //type: 'Third Person Shooter',
+      type: 'Third Person Shooter',
       tags: ['Third Person Shooter', 'Cowboy', 'Open-world']
     },
     {
@@ -59,7 +59,7 @@ export class ContentListComponent implements OnInit {
       description: 'Rise through the ranks, performing bloody fatalities, in this tournament fighter to become the Champion.',
       creator: 'Midway',
       imgURL: 'https://cdn.europosters.eu/image/1300/posters/mortal-kombat-dragon-i104638.jpg',
-      type: 'Tournament Fighter',
+      //type: 'Tournament Fighter',
       tags: ['Fighter', 'Graphic', 'Violent']
     },
     {
@@ -77,7 +77,7 @@ export class ContentListComponent implements OnInit {
       description: 'Hit the half-pipe and score huge points with high-scoring tricks',
       creator: 'Neversoft',
       imgURL: '',
-      type: 'Skateboarding',
+      type: 'Sport',
       tags: ['Skateboard', 'Half-pipe', 'Gnarly']
     }];
   }

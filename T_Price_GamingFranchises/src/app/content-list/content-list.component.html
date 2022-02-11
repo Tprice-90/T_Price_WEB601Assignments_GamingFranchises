@@ -1,1 +1,5 @@
-<app-content-card *ngFor="let item of contentList; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card *ngFor="let item of contentList | typeFilter : 'RPG'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card *ngFor="let item of contentList | typeFilter : 'Platform'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card *ngFor="let item of contentList | typeFilter : 'Third Person Shooter'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card *ngFor="let item of contentList | typeFilter : 'Sport'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card *ngFor="let item of contentList | typeFilter; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
