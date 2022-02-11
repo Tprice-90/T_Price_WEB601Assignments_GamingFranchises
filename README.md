@@ -13,3 +13,9 @@ Second assignment:  removed content-list helper file, created content-list compo
                     border. Added function that would log image title and id to the console when clicked.
                     Added code which would allow tags, imageurl, or type properties to not be shown if 
                     they weren't set.
+
+Third assignment:   Added 2 more items to content list, created typeFilter pipe that sorts each content
+                    item based on it's type attribute, added classes to each item type to change the
+                    background colour, created a search function that would return a message saying
+                    if the title entered was found within the array displayed in red if not found or
+                    green if found.

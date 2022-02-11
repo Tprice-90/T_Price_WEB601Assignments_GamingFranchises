@@ -7,6 +7,7 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit {
   contentList: Content[];
+  message: string;
   constructor() {
     this.contentList = [{
       id: 0,
@@ -80,8 +81,20 @@ export class ContentListComponent implements OnInit {
       type: 'Sport',
       tags: ['Skateboard', 'Half-pipe', 'Gnarly']
     }];
+    this.message = '';
   }
   
+  titleInput(inputValue: string): void {
+    let titleFound = this.contentList.find(e => e.title == inputValue);
+    console.log(titleFound);
+    if(titleFound != undefined) {
+      this.message = 'Title Has Been Found';
+    }
+    else {
+      this.message = 'No Title Found';
+    }
+  }
+
   ngOnInit(): void {
   }
 

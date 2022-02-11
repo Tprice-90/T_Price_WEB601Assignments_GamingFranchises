@@ -1,25 +1,32 @@
 :host {
     display: block;
 
-    div {
-        display: block;
-        border: 1px solid blue;
-        margin: 10px auto;
-        background-color: gray;
+    .rpg {
+        background-color: blue;
     }
-    h1, h2, h3 {
-        text-align: center;
-        margin: 0 auto;
+    .tps {
+        background-color:darkred;
     }
-    img {
-        display: block;
-        margin: 0 auto;
+    .platform{
+        background-color: green;
     }
-    p {
-        font-size: 15px;
-        text-align: center;
+    .sport{
+        background-color: fuchsia;
     }
-    .first {
-        border: 2px solid black;
+    .noType{
+        background-color: orange;
+    }
+    .search {
+        background-color: white;
+        border: none;
+    }
+    .search h3, p {
+        text-align: start;
+    }
+    .found {
+        color: green;
+    }
+    .notFound {
+        color: red;
     }
 }
