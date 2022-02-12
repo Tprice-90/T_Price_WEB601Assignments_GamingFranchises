@@ -85,7 +85,7 @@ export class ContentListComponent implements OnInit {
   }
   
   titleInput(inputValue: string): void {
-    let titleFound = this.contentList.find(e => e.title == inputValue);
+    let titleFound = this.contentList.find(e => e.title.toLocaleLowerCase() == inputValue.toLocaleLowerCase());
     console.log(titleFound);
     if(titleFound != undefined) {
       this.message = 'Title Has Been Found';
