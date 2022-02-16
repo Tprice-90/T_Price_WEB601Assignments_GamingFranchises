@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { TypeFilterPipe } from './type-filter.pipe';
-import { HighlightAffectDirective } from './highlight-affect.directive';
+import { HoverAffectDirective } from './hover-affect.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { HighlightAffectDirective } from './highlight-affect.directive';
     ContentCardComponent,
     ContentListComponent,
     TypeFilterPipe,
-    HighlightAffectDirective
+    HoverAffectDirective
   ],
   imports: [
     BrowserModule

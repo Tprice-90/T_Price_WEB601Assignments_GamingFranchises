@@ -1,9 +1,10 @@
-import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlightAffect]'
+  selector: '[appHoverAffect]'
 })
-export class HighlightAffectDirective implements OnInit {
+export class HoverAffectDirective {
+
   constructor(private elm: ElementRef) { 
   }
   ngOnInit(): void {
@@ -17,4 +18,5 @@ export class HighlightAffectDirective implements OnInit {
   private underlineElement(effect: string): void {
     this.elm.nativeElement.style.textDecoration = effect;
   }
+
 }
