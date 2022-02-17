@@ -7,7 +7,8 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit {
   contentList: Content[];
-  message: string;
+  message: string = '';
+  searchFlag: boolean = false;
   constructor() {
     this.contentList = [{
       id: 0,
@@ -81,17 +82,19 @@ export class ContentListComponent implements OnInit {
       type: 'Sport',
       tags: ['Skateboard', 'Half-pipe', 'Gnarly']
     }];
-    this.message = '';
+    
   }
   
   titleInput(inputValue: string): void {
-    let titleFound = this.contentList.find(e => e.title.toLocaleLowerCase() == inputValue.toLocaleLowerCase());
+    let titleFound = this.contentList.find(e => e.title.toLowerCase() == inputValue.toLowerCase());
     console.log(titleFound);
     if(titleFound != undefined) {
       this.message = 'Title Has Been Found';
+      this.searchFlag = true;
     }
     else {
       this.message = 'No Title Found';
+      this.searchFlag = false;
     }
   }
 

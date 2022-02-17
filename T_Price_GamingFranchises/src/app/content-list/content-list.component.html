@@ -2,12 +2,11 @@
     <h3>Search For Title</h3>
     <input #gameTitle>
     <button (click)="titleInput(gameTitle.value)">Submit</button>
-    <p class="found" *ngIf="message == 'Title Has Been Found'"> {{ message }} </p>
-    <p class="notFound" *ngIf="message == 'No Title Found'"> {{ message }} </p>
+    <p [class.found]="searchFlag" [class.notFound]="!searchFlag"> {{ message }} </p>
 </div>
 
-<app-content-card class="rpg" *ngFor="let item of contentList | typeFilter : 'RPG'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
-<app-content-card class="platform" *ngFor="let item of contentList | typeFilter : 'Platform'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
-<app-content-card class="tps" *ngFor="let item of contentList | typeFilter : 'Third Person Shooter'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
-<app-content-card class="sport" *ngFor="let item of contentList | typeFilter : 'Sport'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
-<app-content-card class="noType" *ngFor="let item of contentList | typeFilter; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card class="rpg" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'RPG'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card class="platform" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'Platform'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card class="tps" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'Third Person Shooter'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card class="sport" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'Sport'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card class="noType" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>

@@ -1,32 +1,6 @@
-:host {
-    display: block;
-
-    .rpg {
-        background-color: blue;
-    }
-    .tps {
-        background-color:darkred;
-    }
-    .platform{
-        background-color: green;
-    }
-    .sport{
-        background-color: fuchsia;
-    }
-    .noType{
-        background-color: orange;
-    }
-    .search {
-        background-color: white;
-        border: none;
-    }
-    .search h3, p {
-        text-align: start;
-    }
-    .found {
-        color: green;
-    }
-    .notFound {
-        color: red;
-    }
+.found {
+    color: green;
+}
+.notFound {
+    color: red;
 }
