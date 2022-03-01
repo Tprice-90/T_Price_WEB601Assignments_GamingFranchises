@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 @Component({
@@ -100,8 +101,10 @@ export class ContentListComponent implements OnInit {
 
   addGameToList(addedGame: Content) {
     this.contentList.push(addedGame);
-    
+
     this.contentList = [...this.contentList];
+    let div = document.getElementById('addError');
+    div?.innerHTML == " ";
   }
 
   ngOnInit(): void {

@@ -16,31 +16,43 @@ export class CreateContentComponent implements OnInit {
 
   addGame(id: string, title: string, description: string, creator: string, imgURL: string, type: string, tags: string) {
     let gamePromise = new Promise((success, fail) => {
-      let gamePass = true;
-      let message: string = "";
-      if(gamePass) {
-        success(
-          this.newGame = {
-            id: parseInt(id),
-            title: title,
-            description: description,
-            creator: creator,
-            imgURL: imgURL,
-            type: type,
-            tags: tags.split(",")
-          }
-        );
+      if(id && title && description && creator) {
+        success(`Game added to list: ${title}`);
       }
       else {
-        fail(message = `Game failed to be added to list`);
+        fail(`Game Failed to be added.`);
       }
     });
-    gamePromise.then(() => {
+    gamePromise.then((success) => {
+      this.newGame = {
+        id: parseInt(id),
+        title: title,
+        description: description,
+        creator: creator,
+        imgURL: imgURL,
+        type: type,
+        tags: tags.split(",")
+      }
       this.addGameEvent.emit(this.newGame)
-      console.log(`Game Successfully added: ${title}`);
+      console.log(success);
+      this.clearFields();
     })
-    .catch((error) =>{
-      error;
+    .catch((fail) =>{
+      let div = document.getElementById('addError');
+      let p = document.createElement('p');
+      p.style.fontWeight = 'bold'
+      p.style.color = 'red';
+      p.textContent = fail;
+      div?.appendChild(p);
+      console.log(fail);
     });
+  }
+
+  clearFields() {
+    let inputs = document.querySelectorAll('input');
+
+    inputs.forEach(i => {
+      i.value = "";
+    })
   }
 }
