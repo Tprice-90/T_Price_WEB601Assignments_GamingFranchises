@@ -19,3 +19,7 @@ Third assignment:   Added 2 more items to content list, created typeFilter pipe 
                     background colour, created a search function that would return a message saying
                     if the title entered was found within the array displayed in red if not found or
                     green if found.
+
+Fourth Assignment:  Created Hover-Affect directive that would highlight the first item of each content
+                    card based on type, directive also underlines item Type when hovered over. Applied
+                    a default image related to theme if no image is set.
