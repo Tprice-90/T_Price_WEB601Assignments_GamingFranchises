@@ -1,24 +1,32 @@
 <div>
-    <label for="id">ID:</label>
-    <input name="id" type="text">
-
-    <label for="title">Title:</label>
-    <input name="title" type="text">
-
-    <label for="description">Description</label>
-    <input name="description" type="text">
-
-    <label for="creator">Creator:</label>
-    <input name="creator" type="text">
-
-    <label for="imgURL">ImageUrl:</label>
-    <input name="imgURL" type="text">
-
-    <label for="type">Type:</label>
-    <input name="type" type="text">
-
-    <label for="tags">Tags:</label>
-    <input name="tags" type="text">
-
+    <div>
+        <label for="id">ID:</label>
+        <input name="id" #id>
+    </div>
+    <div>
+        <label for="title">Title:</label>
+        <input name="title" #title>
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input name="description" #description>
+    </div>
+    <div>
+        <label for="creator">Creator:</label>
+        <input name="creator" #creator>
+    </div>
+    <div>
+        <label for="imgURL">ImageUrl:</label>
+        <input name="imgURL" #imgURL>
+    </div>
+    <div>
+        <label for="type">Type:</label>
+        <input name="type" #type>
+    </div>
+    <div>
+        <label for="tags">Tags:</label>
+        <input name="tags" #tags>
+    </div>
+    
     <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)">Add Game</button>
 </div>

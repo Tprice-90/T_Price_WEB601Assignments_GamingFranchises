@@ -98,7 +98,12 @@ export class ContentListComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  addGameToList(addedGame: Content) {
+    this.contentList.push(addedGame);
+    
+    this.contentList = [...this.contentList];
   }
 
+  ngOnInit(): void {
+  }
 }
