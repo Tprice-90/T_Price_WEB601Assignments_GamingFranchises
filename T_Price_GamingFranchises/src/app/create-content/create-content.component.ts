@@ -15,12 +15,17 @@ export class CreateContentComponent implements OnInit {
   }
 
   addGame(id: string, title: string, description: string, creator: string, imgURL: string, type: string, tags: string) {
+    let div = document.getElementById('addError');
+    let p = document.createElement('p');
+    p.style.fontWeight = 'bold'
+    p.style.color = 'red';
+    
     let gamePromise = new Promise((success, fail) => {
       if(id && title && description && creator) {
         success(`Game added to list: ${title}`);
       }
       else {
-        fail(`Game Failed to be added.`);
+        fail(`Game failed to be added: ID, Title, Description, Creator are required fields.`);
       }
     });
     gamePromise.then((success) => {
@@ -36,12 +41,9 @@ export class CreateContentComponent implements OnInit {
       this.addGameEvent.emit(this.newGame)
       console.log(success);
       this.clearFields();
+      div?.remove();
     })
     .catch((fail) =>{
-      let div = document.getElementById('addError');
-      let p = document.createElement('p');
-      p.style.fontWeight = 'bold'
-      p.style.color = 'red';
       p.textContent = fail;
       div?.appendChild(p);
       console.log(fail);

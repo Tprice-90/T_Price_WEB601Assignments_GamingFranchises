@@ -103,8 +103,6 @@ export class ContentListComponent implements OnInit {
     this.contentList.push(addedGame);
 
     this.contentList = [...this.contentList];
-    let div = document.getElementById('addError');
-    div?.innerHTML == " ";
   }
 
   ngOnInit(): void {
