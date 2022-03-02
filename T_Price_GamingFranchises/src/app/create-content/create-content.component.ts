@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 
 @Component({
@@ -8,6 +9,7 @@ import { Content } from '../helper-files/content-interface';
 })
 export class CreateContentComponent implements OnInit {
   @Output() addGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
+  message: String = "";
   newGame?: Content;
   constructor() { }
 
@@ -15,10 +17,6 @@ export class CreateContentComponent implements OnInit {
   }
 
   addGame(id: string, title: string, description: string, creator: string, imgURL: string, type: string, tags: string) {
-    let div = document.getElementById('addError');
-    let p = document.createElement('p');
-    p.style.fontWeight = 'bold'
-    p.style.color = 'red';
     
     let gamePromise = new Promise((success, fail) => {
       if(id && title && description && creator) {
@@ -38,23 +36,13 @@ export class CreateContentComponent implements OnInit {
         type: type,
         tags: tags.split(",")
       }
-      this.addGameEvent.emit(this.newGame)
+      this.addGameEvent.emit(this.newGame);
+      this.message = "";
       console.log(success);
-      this.clearFields();
-      div?.remove();
     })
     .catch((fail) =>{
-      p.textContent = fail;
-      div?.appendChild(p);
       console.log(fail);
+      this.message = fail;
     });
-  }
-
-  clearFields() {
-    let inputs = document.querySelectorAll('input');
-
-    inputs.forEach(i => {
-      i.value = "";
-    })
   }
 }

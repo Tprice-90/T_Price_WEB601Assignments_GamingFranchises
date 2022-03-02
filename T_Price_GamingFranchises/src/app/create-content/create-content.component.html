@@ -30,5 +30,5 @@
     
     <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)">Add Game</button>
 
-    <div id="addError"></div>
+    <div [textContent]="message" class="errorMessage">{{ message }}</div>
 </div>
