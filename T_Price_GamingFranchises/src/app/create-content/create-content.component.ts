@@ -9,6 +9,7 @@ import { Content } from '../helper-files/content-interface';
 })
 export class CreateContentComponent implements OnInit {
   @Output() addGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
+  input: String = "";
   message: String = "";
   newGame?: Content;
   constructor() { }
@@ -38,6 +39,7 @@ export class CreateContentComponent implements OnInit {
       }
       this.addGameEvent.emit(this.newGame);
       this.message = "";
+      this.input = "";
       console.log(success);
     })
     .catch((fail) =>{
