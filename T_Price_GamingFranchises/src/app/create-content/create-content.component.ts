@@ -9,12 +9,6 @@ import { Content } from '../helper-files/content-interface';
 })
 export class CreateContentComponent implements OnInit {
   @Output() addGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
-  @ViewChild('id') idReference!: ElementRef;
-  @ViewChild('title') titleReference!: ElementRef;
-  @ViewChild('description') desReference!: ElementRef;
-  @ViewChild('creator') creatorReference!: ElementRef;
-  @ViewChild('type') typeReference!: ElementRef;
-  @ViewChild('tags') tagsReference!: ElementRef;
   message: String = "";
   newGame?: Content;
   constructor() { }
@@ -44,13 +38,6 @@ export class CreateContentComponent implements OnInit {
       }
       this.addGameEvent.emit(this.newGame);
       this.message = "";
-      this.idReference.nativeElement.value = '';
-      this.titleReference.nativeElement.value = '';
-      this.desReference.nativeElement.value = '';
-      this.creatorReference.nativeElement.value = '';
-      this.typeReference.nativeElement.value = '';
-      this.tagsReference.nativeElement.value = '';
-
       console.log(success);
     })
     .catch((fail) =>{
