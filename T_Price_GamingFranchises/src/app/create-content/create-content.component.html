@@ -1,31 +1,31 @@
 <div>
     <div>
         <label for="id" >ID:</label>
-        <input name="id" #id>
+        <input name="id" #id [(ngModel)]="idInput">
     </div>
     <div>
         <label for="title">Title:</label>
-        <input name="title" #title>
+        <input name="title" #title [(ngModel)]="titleInput">
     </div>
     <div>
         <label for="description">Description</label>
-        <input name="description" #description>
+        <input name="description" #description [(ngModel)]="descInput">
     </div>
     <div>
         <label for="creator">Creator:</label>
-        <input name="creator" #creator>
+        <input name="creator" #creator [(ngModel)]="createInput">
     </div>
     <div>
         <label for="imgURL">ImageUrl:</label>
-        <input name="imgURL" #imgURL>
+        <input name="imgURL" #imgURL [(ngModel)]="imgInput">
     </div>
     <div>
         <label for="type">Type:</label>
-        <input name="type" #type>
+        <input name="type" #type [(ngModel)]="typeInput">
     </div>
     <div>
         <label for="tags">Tags:</label>
-        <input name="tags" #tags>
+        <input name="tags" #tags [(ngModel)]="tagsInput">
     </div>
     
     <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)">Add Game</button>

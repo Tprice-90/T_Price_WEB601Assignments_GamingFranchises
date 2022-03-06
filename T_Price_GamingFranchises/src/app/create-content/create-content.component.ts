@@ -9,6 +9,13 @@ import { Content } from '../helper-files/content-interface';
 })
 export class CreateContentComponent implements OnInit {
   @Output() addGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
+  idInput: String = "";
+  titleInput: String = "";
+  descInput: String = "";
+  createInput: String = "";
+  imgInput: String = "";
+  typeInput: String = "";
+  tagsInput: String = "";
   message: String = "";
   newGame?: Content;
   constructor() { }
@@ -38,6 +45,13 @@ export class CreateContentComponent implements OnInit {
       }
       this.addGameEvent.emit(this.newGame);
       this.message = "";
+      this.idInput = "";
+      this.titleInput = "";
+      this.descInput = "";
+      this.createInput = "";
+      this.imgInput = "";
+      this.typeInput = "";
+      this.tagsInput = "";
       console.log(success);
     })
     .catch((fail) =>{
