@@ -19,3 +19,9 @@ Third assignment:   Added 2 more items to content list, created typeFilter pipe 
                     background colour, created a search function that would return a message saying
                     if the title entered was found within the array displayed in red if not found or
                     green if found.
+
+Fourth Assignment:  Created Hover-Affect directive that would highlight the first item of each content card
+                    based on type, directive also underlines item Type when hovered over. Applied a default image related to theme if no image is set.
+
+Fifth Assignment:   Added input functionality to add items to the list and display them. CreatContent
+                    component contains addGame method which includes a Promise. If Promise succeeds, properties are sent to content-list component and form is cleared. If Promise fails (ID,Title,Description,Creator required), error message is displayed under submit button. Once Promise succeeds after failing, error message is removed.
