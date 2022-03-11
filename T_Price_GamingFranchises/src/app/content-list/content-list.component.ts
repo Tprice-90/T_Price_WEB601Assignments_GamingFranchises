@@ -8,10 +8,12 @@ import { GameService } from '../services/game.service';
 })
 export class ContentListComponent implements OnInit {
   contentList: Content[];
+  singleItem: Content[];
   message: string = '';
   searchFlag: boolean = false;
   constructor(private gameService: GameService) {
     this.contentList = [];
+    this.singleItem = []
   }
   
   titleInput(inputValue: string): void {
@@ -29,6 +31,7 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void {
     this.gameService.getContentObs().subscribe(gameArray => this.contentList = gameArray);
+    this.gameService.singleItem(4).subscribe(game => this.singleItem = game);
   }
 
 }

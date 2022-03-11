@@ -1,5 +1,5 @@
 import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -10,3 +10,4 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title = 'T_Price_GamingFranchises';
 }
+

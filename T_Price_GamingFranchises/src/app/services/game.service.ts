@@ -17,4 +17,9 @@ export class GameService {
   getContentObs(): Observable<Content[]> {
     return of (CONTENTLIST);
   }
+
+  singleItem(idIndex: number): Observable<Content[]> {
+    let gameItem = CONTENTLIST.filter(x => x.id == idIndex);
+    return of (gameItem);
+  }
 }

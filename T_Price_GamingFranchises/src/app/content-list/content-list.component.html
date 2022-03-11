@@ -1,3 +1,4 @@
+<app-content-card appHoverAffect card="10px solid purple" class="rpg" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of singleItem; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
 <div class="search">
     <h3>Search For Title</h3>
     <input #gameTitle>
