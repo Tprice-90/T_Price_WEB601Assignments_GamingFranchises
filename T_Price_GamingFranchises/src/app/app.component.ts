@@ -10,9 +10,14 @@ import { GameService } from './services/game.service';
 export class AppComponent implements OnInit {
   title = 'T_Price_GamingFranchises';
   singleItem: Content[]
+  inputNumber: number = 0;
   constructor(private gameService: GameService) { this.singleItem = [] }
   ngOnInit(): void {
-    this.gameService.singleItem(4).subscribe(game => this.singleItem = game);
+    this.gameService.singleItem(3).subscribe(game => this.singleItem = game);
+  }
+
+  indexInput(value: string): number {
+    return this.inputNumber = parseInt(value)
   }
 }
 
