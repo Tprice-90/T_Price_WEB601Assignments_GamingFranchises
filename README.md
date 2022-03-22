@@ -25,3 +25,8 @@ Fourth Assignment:  Created Hover-Affect directive that would highlight the firs
 
 Fifth Assignment:   Added input functionality to add items to the list and display them. CreatContent
                     component contains addGame method which includes a Promise. If Promise succeeds, properties are sent to content-list component and form is cleared. If Promise fails (ID,Title,Description,Creator required), error message is displayed under submit button. Once Promise succeeds after failing, error message is removed.
+
+Sixth Assignment:   Created a GameService Observable that retrieves data from contentDb file that Content
+                    List component subscribes to to display the data when it is available. Created a Message
+                    Service that displays a message when single Content Card is displayed and which ID that
+                    item has.
