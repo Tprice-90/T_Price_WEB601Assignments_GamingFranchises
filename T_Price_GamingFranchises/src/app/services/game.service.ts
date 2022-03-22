@@ -3,16 +3,20 @@ import { Observable, of } from 'rxjs';
 import { Content } from '../helper-files/content-interface';
 import { CONTENTLIST } from '../helper-files/contentDB';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type' : 'application/json' })
+  }
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private http: HttpClient) { }
 
-  getContent(): Content[] {
-    return CONTENTLIST;
+  getContent(): Observable<Content[]> {
+    return this.http.get<Content[]>("api/content");
   }
 
   getContentObs(): Observable<Content[]> {
