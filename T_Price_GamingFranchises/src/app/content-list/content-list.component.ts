@@ -30,8 +30,30 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.gameService.getContent().subscribe(gameArray => this.contentList = gameArray);
+    this.getGamesFromServer();
     this.gameService.singleItem(4).subscribe(game => this.singleItem = game);
   }
 
+  getGamesFromServer(): void {
+    this.gameService.getContent().subscribe(gameArray => this.contentList = gameArray);
+  }
+
+  addGameToList(newGameFromChild: Content): void {
+    this.gameService.addContent(newGameFromChild).subscribe(newContentFromServer => {
+      console.log("New content from server: ", newContentFromServer);
+      
+      this.contentList.push(newContentFromServer);
+      this.contentList = [...this.contentList];
+
+    });
+  }
+
+  updateGameInList(contentItem: Content): void {
+    // let id = this.bunchOfFood.find(foodItem => foodItem.id == contentItem.id);
+
+    this.gameService.updateContent(contentItem).subscribe(() => {
+      console.log("Content updated successfully");
+      this.getGamesFromServer();
+    });
+  }
 }

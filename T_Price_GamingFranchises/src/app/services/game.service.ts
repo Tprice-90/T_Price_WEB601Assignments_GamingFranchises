@@ -28,4 +28,13 @@ export class GameService {
     this.messageService.add(`Content item at id: ${idIndex}`);
     return of (gameItem);
   }
+
+  addContent(newContentItem: Content): Observable<Content>{
+    console.log("added the new content: ", newContentItem);
+    return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
+  }
+
+  updateContent(contentItem: Content): Observable<any>{
+    return this.http.put("api/content", contentItem, this.httpOptions);
+  }
 }
