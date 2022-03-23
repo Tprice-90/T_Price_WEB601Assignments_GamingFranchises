@@ -30,7 +30,7 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.gameService.getContentObs().subscribe(gameArray => this.contentList = gameArray);
+    this.gameService.getContent().subscribe(gameArray => this.contentList = gameArray);
     this.gameService.singleItem(4).subscribe(game => this.singleItem = game);
   }
 
