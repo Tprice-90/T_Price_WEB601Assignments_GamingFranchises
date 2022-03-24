@@ -1,7 +1,7 @@
 <section class="modify">
     <h3>Add Or Modify Game Item</h3>
 
-    <label for="id">ID (For Updating)</label>
+    <label for="id">ID (For Updating, Hover over first Content Card to Update Button)</label>
     <input name="id" #id>
 
     <label for="title">Title</label>
@@ -22,5 +22,5 @@
     <label for="tags">Tags</label>
     <input name="tags" #tags>
 
-    <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)">{{ !id.value ? button : "Update Game" }}</button>
+    <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)" [value]="button">{{ id.value ? "Update Game" : button }}</button>
 </section>

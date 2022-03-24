@@ -30,3 +30,9 @@ Sixth Assignment:   Created a GameService Observable that retrieves data from co
                     List component subscribes to to display the data when it is available. Created a Message
                     Service that displays a message when single Content Card is displayed and which ID that
                     item has.
+
+Seventh Assignment: Added ability to add content via mock "Server" component. Created In Memory Data service
+                    that uses ContentDb file to create a "Server" that passes the data to the content-list
+                    component. Created modify-content component that both adds and edits content(if id is
+                    entered). Created dynamic button that defaults to "Add Game", or, if an ID is entered
+                    switches to "Update Game"

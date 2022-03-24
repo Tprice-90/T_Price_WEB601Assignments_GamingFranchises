@@ -11,7 +11,10 @@ export class ModifyContentComponent implements OnInit {
 
   @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
   @Output() updateGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
-  newGame?: Content;
+  newGame: Content = {
+    id: -1, title: '', description: '', creator: '', imgURL: '', type: undefined, tags: []
+  };
+  //@Input() keyPressed: Boolean = false; //used for detectChange method
   @Input() button: String = 'Add Game';
 
   constructor(private messageService: MessageService) { }
@@ -31,6 +34,9 @@ export class ModifyContentComponent implements OnInit {
       };
       this.updateGameEvent.emit(this.newGame);
       this.messageService.add(`Content item ${this.newGame.title} updated`);
+      this.newGame = {
+        id: -1, title: '', description: '', creator: '', imgURL: '', type: undefined, tags: []
+      }
     }
     else {
       this.newGame = {
@@ -43,19 +49,19 @@ export class ModifyContentComponent implements OnInit {
       };
       this.newGameEvent.emit(this.newGame);
       this.messageService.add(`Content item ${this.newGame.title} added`);
+      this.newGame = {
+        id: -1, title: '', description: '', creator: '', imgURL: '', type: undefined, tags: []
+      }
     }
   }
-  updateGame(id: string, title: string, creator: string, imgURL: string, description: string, type: string, tags: string): void {
-    this.newGame = {
-      id: parseInt(id),
-      title: title,
-      creator: creator,
-      imgURL: imgURL,
-      description: description,
-      type: type,
-      tags: tags.split(",")
-    };
-    this.updateGameEvent.emit(this.newGame);
-    this.messageService.add(`Content item ${this.newGame.title} updated`);
-  }
+  
+  // Trying to use this as a trigger to change button text
+  /* detectChange(value: string): Boolean {
+    if(value !== undefined) {
+      return this.keyPressed = true;
+    }
+    else {
+      return this.keyPressed = false;
+    }
+  } */
 }

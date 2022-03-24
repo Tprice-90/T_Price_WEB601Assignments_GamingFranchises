@@ -52,7 +52,7 @@ export class ContentListComponent implements OnInit {
     // let id = this.bunchOfFood.find(foodItem => foodItem.id == contentItem.id);
 
     this.gameService.updateContent(contentItem).subscribe(() => {
-      console.log("Content updated successfully");
+      console.log(`Content: ${contentItem.title} updated successfully`);
       this.getGamesFromServer();
     });
   }
