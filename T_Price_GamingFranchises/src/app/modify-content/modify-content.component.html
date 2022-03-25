@@ -2,7 +2,7 @@
     <h3>Add Or Modify Game Item</h3>
 
     <label for="id">ID (For Updating, Hover over first Content Card to Update Button)</label>
-    <input name="id" #id>
+    <input name="id" #id [(ngModel)]="idInput">
 
     <label for="title">Title</label>
     <input name="title" #title>
@@ -22,5 +22,5 @@
     <label for="tags">Tags</label>
     <input name="tags" #tags>
 
-    <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)" [value]="button">{{ id.value ? "Update Game" : button }}</button>
+    <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)" [value]="button">{{ idInput ? "Update Game" : button }}</button>
 </section>

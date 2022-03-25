@@ -16,6 +16,7 @@ export class ModifyContentComponent implements OnInit {
   };
   //@Input() keyPressed: Boolean = false; //used for detectChange method
   @Input() button: String = 'Add Game';
+  @Input() idInput?: String;
 
   constructor(private messageService: MessageService) { }
   ngOnInit(): void {
