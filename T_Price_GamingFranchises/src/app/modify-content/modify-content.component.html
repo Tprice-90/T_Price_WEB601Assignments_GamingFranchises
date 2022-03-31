@@ -2,31 +2,31 @@
     <h3>Add Or Modify Game Item</h3>
     <mat-form-field>
         <mat-label for="id">ID</mat-label>
-        <input matInput name="id" #id [(ngModel)]="idInput">
+        <input matInput name="id" [(ngModel)]="id">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="title">Title</mat-label>
-        <input matInput name="title" #title>
+        <input matInput name="title" [(ngModel)]="newGame.title">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="description">Description</mat-label>
-        <input matInput name="description" #description>
+        <input matInput name="description" [(ngModel)]="newGame.description">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="creator">Creator</mat-label>
-        <input matInput name="creator" #creator>
+        <input matInput name="creator" [(ngModel)]="newGame.creator">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="imgURL">ImgUrl</mat-label>
-        <input matInput name="imgUrl" #imgURL>
+        <input matInput name="imgUrl" [(ngModel)]="newGame.imgURL">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="type">Type</mat-label>
-        <input matInput name="type" #type>
+        <input matInput name="type" [(ngModel)]="newGame.type">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="tags">Tags</mat-label>
-        <input matInput name="tags" #tags>
+        <input matInput name="tags" [(ngModel)]="newGame.tags">
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)" [value]="button">{{ idInput ? "Update Game" : button }}</button>
+    <button mat-raised-button color="primary" (click)="addContentFromChild()" [value]="button">{{ id ? "Update Game" : button }}</button>
 </section>

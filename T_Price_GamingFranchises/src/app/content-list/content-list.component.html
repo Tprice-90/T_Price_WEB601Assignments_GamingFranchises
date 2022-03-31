@@ -3,7 +3,7 @@
 <div class="search">
     <mat-form-field>
         <mat-label for="search">Search Title</mat-label>
-        <input name="search" matInput #gameTitle>
+        <input matInput name="search" #gameTitle>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="titleInput(gameTitle.value)">Submit</button>
     <p [class.found]="searchFlag" [class.notFound]="!searchFlag"> {{ message }} </p>
