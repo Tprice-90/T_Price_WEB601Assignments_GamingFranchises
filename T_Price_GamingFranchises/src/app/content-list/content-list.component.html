@@ -1,9 +1,11 @@
 <app-modify-content (newGameEvent)="addGameToList($event)" (updateGameEvent)="updateGameInList($event)"></app-modify-content>
 
 <div class="search">
-    <h3>Search For Title</h3>
-    <input #gameTitle>
-    <button (click)="titleInput(gameTitle.value)">Submit</button>
+    <mat-form-field>
+        <mat-label for="search">Search Title</mat-label>
+        <input name="search" matInput #gameTitle>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="titleInput(gameTitle.value)">Submit</button>
     <p [class.found]="searchFlag" [class.notFound]="!searchFlag"> {{ message }} </p>
 </div>
 

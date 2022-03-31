@@ -1,5 +1,7 @@
 <app-messages></app-messages>
-<input type="text" #index>
-<button (click)="indexInput(index.value)">Search</button>
+<mat-form-field>
+<input matInput type="text" #index>
+</mat-form-field>
+<button mat-raised-button (click)="indexInput(index.value)">Search</button>
 <app-content-card class="single" *ngFor="let item of singleItem; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
 <app-content-list></app-content-list>

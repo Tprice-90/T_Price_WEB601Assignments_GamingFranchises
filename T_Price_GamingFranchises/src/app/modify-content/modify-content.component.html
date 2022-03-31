@@ -1,26 +1,32 @@
 <section class="modify">
     <h3>Add Or Modify Game Item</h3>
-
-    <label for="id">ID (For Updating, Hover over first Content Card to Update Button)</label>
-    <input name="id" #id [(ngModel)]="idInput">
-
-    <label for="title">Title</label>
-    <input name="title" #title>
-
-    <label for="description">Description</label>
-    <input name="description" #description>
-
-    <label for="creator">Creator</label>
-    <input name="creator" #creator>
-
-    <label for="imgUrl">ImageURL</label>
-    <input name="imgUrl" #imgURL>
-
-    <label for="type">Type</label>
-    <input name="type" #type>
-
-    <label for="tags">Tags</label>
-    <input name="tags" #tags>
-
-    <button (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)" [value]="button">{{ idInput ? "Update Game" : button }}</button>
+    <mat-form-field>
+        <mat-label for="id">ID</mat-label>
+        <input matInput name="id" #id [(ngModel)]="idInput">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="title">Title</mat-label>
+        <input matInput name="title" #title>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="description">Description</mat-label>
+        <input matInput name="description" #description>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="creator">Creator</mat-label>
+        <input matInput name="creator" #creator>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="imgURL">ImgUrl</mat-label>
+        <input matInput name="imgUrl" #imgURL>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="type">Type</mat-label>
+        <input matInput name="type" #type>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="tags">Tags</mat-label>
+        <input matInput name="tags" #tags>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addGame(id.value, title.value, description.value, creator.value, imgURL.value, type.value, tags.value)" [value]="button">{{ idInput ? "Update Game" : button }}</button>
 </section>
