@@ -1,32 +1,3 @@
-<section class="modify">
-    <h3>Add Or Modify Game Item</h3>
-    <mat-form-field>
-        <mat-label for="id">ID</mat-label>
-        <input matInput name="id" [(ngModel)]="id">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label for="title">Title</mat-label>
-        <input matInput name="title" [(ngModel)]="newGame.title">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label for="description">Description</mat-label>
-        <input matInput name="description" [(ngModel)]="newGame.description">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label for="creator">Creator</mat-label>
-        <input matInput name="creator" [(ngModel)]="newGame.creator">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label for="imgURL">ImgUrl</mat-label>
-        <input matInput name="imgUrl" [(ngModel)]="newGame.imgURL">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label for="type">Type</mat-label>
-        <input matInput name="type" [(ngModel)]="newGame.type">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label for="tags">Tags</mat-label>
-        <input matInput name="tags" [(ngModel)]="newGame.tags">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="addContentFromChild()" [value]="button">{{ id ? "Update Game" : button }}</button>
-</section>
+<div>
+    <button mat-raised-button color="accent" (click)="openDialog()">Add New Game</button>
+</div>

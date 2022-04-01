@@ -1,16 +1,16 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Content } from '../helper-files/content-interface';
+import { ModifyContentComponent } from '../modify-content/modify-content.component';
 import { GameService } from '../services/game.service';
 import { MessageService } from '../services/message.service';
 
 @Component({
-  selector: 'app-modify-content',
-  templateUrl: './modify-content.component.html',
-  styleUrls: ['./modify-content.component.scss']
+  selector: 'app-dialog-box',
+  templateUrl: './dialog-box.component.html',
+  styleUrls: ['./dialog-box.component.scss']
 })
-export class ModifyContentComponent implements OnInit {
+export class DialogBoxComponent implements OnInit {
 
   @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
   @Output() updateGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
@@ -25,8 +25,10 @@ export class ModifyContentComponent implements OnInit {
   @Input() button: String = 'Add Game';
   @Input() id: String = '';
 
-  constructor(private gameService: GameService, private messageService: MessageService, 
-    private dialog: MatDialog) { }
+  constructor(private gameService: GameService, 
+    private messageService: MessageService,
+    public dialogRef: MatDialogRef<ModifyContentComponent>) { }
+
   ngOnInit(): void {
     this.gameService.getContent().subscribe(list => {
       this.checkValidGameId = list;
@@ -39,6 +41,7 @@ export class ModifyContentComponent implements OnInit {
       this.gameService.addContent(this.newGame).subscribe((newGameFromServer) => {
         this.messageService.add("Game successfully added to the server!");
         this.newGameEvent.emit(newGameFromServer);
+        console.log(this.newGame);
       });
       this.newGame = {
         title: "", description: '', creator: '', type: undefined
@@ -62,24 +65,9 @@ export class ModifyContentComponent implements OnInit {
       }
     }
   }
-  
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '250px',
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
-  // Trying to use this as a trigger to change button text
-  /* detectChange(value: string): Boolean {
-    if(value !== undefined) {
-      return this.keyPressed = true;
-    }
-    else {
-      return this.keyPressed = false;
-    }
-  } */
 }

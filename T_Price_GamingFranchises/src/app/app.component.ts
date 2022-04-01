@@ -1,6 +1,7 @@
 import { Content } from './helper-files/content-interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { GameService } from './services/game.service';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,15 @@ import { GameService } from './services/game.service';
 })
 export class AppComponent implements OnInit {
   title = 'T_Price_GamingFranchises';
-  singleItem: Content[]
+  singleGame?: Content;
   inputNumber: number = 0;
-  constructor(private gameService: GameService) { this.singleItem = [] }
+  constructor(private gameService: GameService) { }
   ngOnInit(): void {
-    this.gameService.singleItem(3).subscribe(game => this.singleItem = game);
+    this.gameService.singleItem(3).subscribe(game => this.singleGame = game);
   }
 
-  indexInput(value: string): number {
-    return this.inputNumber = parseInt(value)
+  displayGameItem(id: string): void{
+    this.gameService.singleItem(parseInt(id)).subscribe(game => this.singleGame = game);
   }
 }
 

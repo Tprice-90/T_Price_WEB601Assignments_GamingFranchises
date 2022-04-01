@@ -16,21 +16,17 @@ export class GameService {
   constructor(private messageService: MessageService, private http: HttpClient) { }
 
   getContent(): Observable<Content[]> {
+    this.messageService.add("Content array loaded!");
     return this.http.get<Content[]>("api/content");
   }
 
-  getContentObs(): Observable<Content[]> {
-    return of (CONTENTLIST);
-  }
-
-  singleItem(idIndex: number): Observable<Content[]> {
-    let gameItem = CONTENTLIST.filter(x => x.id == idIndex);
-    this.messageService.add(`Content item at id: ${idIndex}`);
-    return of (gameItem);
+  singleItem(idIndex: number): Observable<Content> {
+    return this.http.get<Content>("api/content/" + idIndex);
   }
 
   addContent(newContentItem: Content): Observable<Content>{
     console.log("added the new content: ", newContentItem);
+    this.messageService.add("Going to add game to the server!");
     return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
   }
 
