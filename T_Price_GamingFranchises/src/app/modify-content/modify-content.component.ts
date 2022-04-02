@@ -32,36 +32,6 @@ export class ModifyContentComponent implements OnInit {
       this.checkValidGameId = list;
     });
   }
-
-  addContentFromChild(): void {
-    if (this.tempId === "") {
-      this.newGame.tags = this.tempTags.split(',');
-      this.gameService.addContent(this.newGame).subscribe((newGameFromServer) => {
-        this.messageService.add("Game successfully added to the server!");
-        this.newGameEvent.emit(newGameFromServer);
-      });
-      this.newGame = {
-        title: "", description: '', creator: '', type: undefined
-      };
-      this.tempId = "";
-      this.tempTags = ""
-    }
-    else {
-      this.newGame.id = parseInt(this.tempId);
-      if (this.newGame.id !== undefined && this.checkValidGameId.some(game => game.id === this.newGame.id)) {
-        this.newGame.tags = this.tempTags.split(',');
-        this.gameService.updateContent(this.newGame).subscribe(() => {
-          this.messageService.add("Game successfully updated on the server!");
-          this.newGameEvent.emit(this.newGame);
-        });
-        this.newGame = {
-          title: "", description: '', creator: '', type: undefined
-        };
-        this.tempId = "";
-        this.tempTags = "";
-      }
-    }
-  }
   
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogBoxComponent, {

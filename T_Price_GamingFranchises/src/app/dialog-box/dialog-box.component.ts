@@ -27,7 +27,7 @@ export class DialogBoxComponent implements OnInit {
 
   constructor(private gameService: GameService, 
     private messageService: MessageService,
-    public dialogRef: MatDialogRef<ModifyContentComponent>) { }
+    public dialogRef: MatDialogRef<DialogBoxComponent>) { }
 
   ngOnInit(): void {
     this.gameService.getContent().subscribe(list => {
