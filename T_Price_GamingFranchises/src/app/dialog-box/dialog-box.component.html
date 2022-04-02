@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <mat-form-field>
         <mat-label for="id">ID</mat-label>
-        <input matInput name="id" [(ngModel)]="tempId">
+        <input matInput disabled name="id" [(ngModel)]="tempId">
     </mat-form-field>
     <mat-form-field>
         <mat-label for="title">Title</mat-label>
@@ -30,6 +30,6 @@
     </mat-form-field>
 </div>
  <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="addContentFromChild()" [value]="button">{{ tempId ? "Update Game" : button }}</button>
+    <button mat-raised-button color="primary" (click)="addContentFromChild()">{{ tempId ? "Update Game" : "Add Game" }}</button>
     <button mat-raised-button color="accent" (click)="onNoClick()">Cancel</button>
 </div>

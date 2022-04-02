@@ -33,15 +33,34 @@ export class ModifyContentComponent implements OnInit {
     });
   }
   
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '250px',
-    });
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = false;
+    dialogConfig.width = "300px";
+    dialogConfig.data = {
+      id: -1,
+      title: "",
+      description: "",
+      creator: "",
+      type: "",
+      tags: []
+    }
+
+    this.dialog.open(DialogBoxComponent, dialogConfig);
+    
+    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      this.gameService.addContent(data).subscribe((newGameFromServer) => {
+        this.messageService.add("Game successfully added to the server!");
+        this.newGameEvent.emit(newGameFromServer);
+        console.log(data);
+      });
+    }
+    );    
+}
 
   // Trying to use this as a trigger to change button text
   /* detectChange(value: string): Boolean {

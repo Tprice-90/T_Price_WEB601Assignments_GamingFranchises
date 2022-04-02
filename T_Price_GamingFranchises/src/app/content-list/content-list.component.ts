@@ -40,11 +40,6 @@ export class ContentListComponent implements OnInit {
       console.log("New content from server: ", newContentFromServer);
       
       this.gameService.getContent().subscribe(gameArray => this.contentList = gameArray);
-
-      this.contentList.push(newContentFromServer);
-      this.contentList = [...this.contentList];
-
-      this.gameService.getContent().subscribe(gameArray => this.contentList = gameArray);
     });
   }
 

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Content } from '../helper-files/content-interface';
 import { ModifyContentComponent } from '../modify-content/modify-content.component';
 import { GameService } from '../services/game.service';
@@ -22,12 +22,11 @@ export class DialogBoxComponent implements OnInit {
   tempTags: string = "";
   errorMessage: string = "";
   //@Input() keyPressed: Boolean = false; //used for detectChange method
-  @Input() button: String = 'Add Game';
-  @Input() id: String = '';
 
   constructor(private gameService: GameService, 
     private messageService: MessageService,
-    public dialogRef: MatDialogRef<DialogBoxComponent>) { }
+    public dialogRef: MatDialogRef<DialogBoxComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Content) { }
 
   ngOnInit(): void {
     this.gameService.getContent().subscribe(list => {
@@ -38,16 +37,7 @@ export class DialogBoxComponent implements OnInit {
   addContentFromChild(): void {
     if (this.tempId === "") {
       this.newGame.tags = this.tempTags.split(',');
-      this.gameService.addContent(this.newGame).subscribe((newGameFromServer) => {
-        this.messageService.add("Game successfully added to the server!");
-        this.newGameEvent.emit(newGameFromServer);
-        console.log(this.newGame);
-      });
-      this.newGame = {
-        title: "", description: '', creator: '', type: undefined
-      };
-      this.tempId = "";
-      this.tempTags = ""
+      this.dialogRef.close(this.newGame);
     }
     else {
       this.newGame.id = parseInt(this.tempId);
@@ -56,6 +46,7 @@ export class DialogBoxComponent implements OnInit {
         this.gameService.updateContent(this.newGame).subscribe(() => {
           this.messageService.add("Game successfully updated on the server!");
           this.newGameEvent.emit(this.newGame);
+          this.dialogRef.close(this.newGame);
         });
         this.newGame = {
           title: "", description: '', creator: '', type: undefined
