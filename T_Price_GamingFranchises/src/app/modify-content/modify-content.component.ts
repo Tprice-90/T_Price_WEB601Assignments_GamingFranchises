@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { Content } from '../helper-files/content-interface';
 import { GameService } from '../services/game.service';
@@ -25,12 +25,11 @@ export class ModifyContentComponent implements OnInit {
   @Input() button: String = 'Add Game';
   @Input() id: String = '';
 
-  constructor(private gameService: GameService, private messageService: MessageService, 
+  constructor(private gameService: GameService, 
+    private messageService: MessageService, 
     private dialog: MatDialog) { }
   ngOnInit(): void {
-    this.gameService.getContent().subscribe(list => {
-      this.checkValidGameId = list;
-    });
+
   }
   
   openDialog() {
@@ -40,15 +39,13 @@ export class ModifyContentComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.width = "300px";
     dialogConfig.data = {
-      id: -1,
-      title: "",
-      description: "",
-      creator: "",
-      type: "",
-      tags: []
+      id: this.id,
+      title: this.newGame.title,
+      description: this.newGame.description,
+      creator: this.newGame.creator,
+      type: this.newGame.type,
+      tags: this.newGame.tags
     }
-
-    this.dialog.open(DialogBoxComponent, dialogConfig);
     
     const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig);
 
@@ -58,8 +55,7 @@ export class ModifyContentComponent implements OnInit {
         this.newGameEvent.emit(newGameFromServer);
         console.log(data);
       });
-    }
-    );    
+    });    
 }
 
   // Trying to use this as a trigger to change button text

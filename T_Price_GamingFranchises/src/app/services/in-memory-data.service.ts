@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Content } from '../helper-files/content-interface';
-import { CONTENTLIST } from '../helper-files/contentDB';
+
 
 @Injectable({
   providedIn: 'root'

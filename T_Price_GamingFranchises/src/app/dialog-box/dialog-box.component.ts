@@ -35,30 +35,29 @@ export class DialogBoxComponent implements OnInit {
   }
 
   addContentFromChild(): void {
-    if (this.tempId === "") {
       this.newGame.tags = this.tempTags.split(',');
       this.dialogRef.close(this.newGame);
-    }
-    else {
-      this.newGame.id = parseInt(this.tempId);
-      if (this.newGame.id !== undefined && this.checkValidGameId.some(game => game.id === this.newGame.id)) {
-        this.newGame.tags = this.tempTags.split(',');
-        this.gameService.updateContent(this.newGame).subscribe(() => {
-          this.messageService.add("Game successfully updated on the server!");
-          this.newGameEvent.emit(this.newGame);
-          this.dialogRef.close(this.newGame);
-        });
-        this.newGame = {
-          title: "", description: '', creator: '', type: undefined
-        };
-        this.tempId = "";
-        this.tempTags = "";
-      }
-    }
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  updateContent() {
+    this.newGame.id = parseInt(this.tempId);
+    if (this.newGame.id !== undefined && this.checkValidGameId.some(game => game.id === this.newGame.id)) {
+      this.newGame.tags = this.tempTags.split(',');
+      this.gameService.updateContent(this.newGame).subscribe(() => {
+        this.messageService.add("Game successfully updated on the server!");
+        this.newGameEvent.emit(this.newGame);
+        this.dialogRef.close(this.newGame);
+      });
+      this.newGame = {
+        title: "", description: '', creator: '', type: undefined
+      };
+      this.tempId = "";
+      this.tempTags = "";
+    }
   }
 
 }

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatBadgeModule } from '@angular/material/badge'; 
+import { MatTooltipModule } from '@angular/material/tooltip'; 
+import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -40,7 +43,10 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

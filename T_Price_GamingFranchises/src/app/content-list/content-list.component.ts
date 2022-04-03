@@ -11,6 +11,7 @@ export class ContentListComponent implements OnInit {
   singleItem: Content[];
   message: string = '';
   searchFlag: boolean = false;
+  breakpoint: any;
   constructor(private gameService: GameService) {
     this.contentList = [];
     this.singleItem = [];
@@ -33,6 +34,11 @@ export class ContentListComponent implements OnInit {
     this.gameService.getContent().subscribe(game => {
       this.contentList = game
     });
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;
+  }
+
+  onResize(event: any) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
   }
 
   addGameToList(newGameFromChild: Content): void {
