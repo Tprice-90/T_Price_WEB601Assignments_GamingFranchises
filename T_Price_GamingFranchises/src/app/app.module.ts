@@ -20,6 +20,9 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     HoverAffectDirective,
     MessagesComponent,
     ModifyContentComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    ContentDetailComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +51,11 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatDialogModule,
     MatCardModule,
     MatTooltipModule,
-    MatBadgeModule
+    MatBadgeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogBoxComponent]
+  entryComponents: [DialogBoxComponent],
 })
 export class AppModule { }
