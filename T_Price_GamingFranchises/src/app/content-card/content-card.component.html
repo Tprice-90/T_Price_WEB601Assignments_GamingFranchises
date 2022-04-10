@@ -8,6 +8,7 @@
 
     <mat-card-content>
         <h3 appHoverAffect line="underline" *ngIf="game?.type">Game Type: {{ game ? game?.type : "" }}</h3>
+        <p class="description">{{ game ? game?.description : ""}}</p>
         <div class="tags" *ngIf="game?.tags">
             <span appHoverAffect bold="bold" class="tag" *ngFor="let tag of game?.tags">
                 {{ tag }}
@@ -16,9 +17,6 @@
     </mat-card-content>
     <mat-card-actions>
       <app-modify-content></app-modify-content>
-      <a [routerLink]="['/list', game?.id ?? 0]" routerLinkActive="active">
-        Game Details
-      </a>
     </mat-card-actions>
   </mat-card>
   

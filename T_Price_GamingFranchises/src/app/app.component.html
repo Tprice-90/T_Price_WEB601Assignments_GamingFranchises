@@ -4,6 +4,5 @@
     <input matInput name="index" type="number" #id>
 </mat-form-field>
 <button mat-raised-button (click)="displayGameItem(id.value)">Search</button>
-<div>
-    <router-outlet></router-outlet>
-</div>
+<app-content-card  [game]="singleGame" class="single-item-on-app-component"></app-content-card>
+<app-content-list></app-content-list>
