@@ -2,6 +2,7 @@ import { Content } from './helper-files/content-interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { GameService } from './services/game.service';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
+import { LogUpdateService } from './services/log-update.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,12 @@ export class AppComponent implements OnInit {
   title = 'T_Price_GamingFranchises';
   singleGame?: Content;
   inputNumber: number = 0;
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService,
+    private logService:LogUpdateService) { }
+
   ngOnInit(): void {
     this.gameService.singleItem(3).subscribe(game => this.singleGame = game);
+    this.logService.init();
   }
 
   displayGameItem(id: string): void{
