@@ -9,6 +9,7 @@ export class LogUpdateService {
   constructor(private updates: SwUpdate) { }
 
   public init(){
+    
     this.updates.versionUpdates.subscribe(event => {
       switch (event.type) {
       case 'VERSION_DETECTED':
@@ -23,5 +24,9 @@ export class LogUpdateService {
       break;
       } 
     });
+  }
+
+  openSnackBar(message: string, action: string) {
+    
   }
 }
