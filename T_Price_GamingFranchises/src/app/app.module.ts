@@ -46,7 +46,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
-      delay: 2000
+      delay: 500
     }),
     BrowserAnimationsModule,
     MatButtonModule,
