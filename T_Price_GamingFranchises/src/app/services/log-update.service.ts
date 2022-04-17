@@ -18,7 +18,11 @@ export class LogUpdateService {
         case 'VERSION_READY':
         console.log(`Current app version: ${event.currentVersion.hash}`);
         console.log(`New app version ready for use: ${event.latestVersion.hash}`);
-        this.updates.activateUpdate().then(() => document.location.reload());
+        this.updates.activateUpdate().then(() => {
+          this._snackBar.open("Update Available", "Reload Now")
+          .onAction()
+          .subscribe(() => document.location.reload());
+        });
         break;
       } 
     });
