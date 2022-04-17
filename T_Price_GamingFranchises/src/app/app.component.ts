@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.gameService.singleItem(3).subscribe(game => this.singleGame = game);
     this.logService.init();
-    // const appIsStable$ = this.appRef.isStable.pipe(
-    //   first(isStable =>isStable === true));
-    // const everyHour$ = interval(1 * 60 * 60 * 1000);
-    // const everyHourWhenAppIsStable$ = concat(appIsStable$, everyHour$);
-    // everyHourWhenAppIsStable$.subscribe(() => this.updates.checkForUpdate());
+    const appIsStable$ = this.appRef.isStable.pipe(
+      first(isStable =>isStable === true));
+    const everyHour$ = interval(1 * 60 * 60 * 1000);
+    const everyHourWhenAppIsStable$ = concat(appIsStable$, everyHour$);
+    everyHourWhenAppIsStable$.subscribe(() => this.updates.checkForUpdate());
   }
 
   displayGameItem(id: string): void{
