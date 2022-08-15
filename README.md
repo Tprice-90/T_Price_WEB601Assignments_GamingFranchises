@@ -38,3 +38,4 @@ Seventh Assignment: Added ability to add content via mock "Server" component. Cr
                     switches to "Update Game"
                   
 
+![Main Screen Image](/GamingFranchise.jpeg)
