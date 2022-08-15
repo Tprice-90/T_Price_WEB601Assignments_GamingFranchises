@@ -36,3 +36,5 @@ Seventh Assignment: Added ability to add content via mock "Server" component. Cr
                     component. Created modify-content component that both adds and edits content(if id is
                     entered). Created dynamic button that defaults to "Add Game", or, if an ID is entered
                     switches to "Update Game"
+                    
+                    ![Main Screen Image](GamingFranchise.png)
