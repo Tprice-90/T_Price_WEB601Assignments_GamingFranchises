@@ -37,4 +37,5 @@ Seventh Assignment: Added ability to add content via mock "Server" component. Cr
                     entered). Created dynamic button that defaults to "Add Game", or, if an ID is entered
                     switches to "Update Game"
                     
-                    ![Main Screen Image](/GamingFranchise.jpeg)
+                    ![GamingFranchise](https://user-images.githubusercontent.com/90633341/184647324-d3782642-7752-4cb4-8920-f0658c91904c.jpeg)
+
