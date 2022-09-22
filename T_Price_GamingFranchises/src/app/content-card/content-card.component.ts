@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { ContentList } from '../helper-files/content-list';
 
 @Component({
   selector: 'app-content-card',
@@ -8,12 +7,13 @@ import { ContentList } from '../helper-files/content-list';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  fallout: Content;
-  superMario: Content;
-  gta: Content;
-  contentList: ContentList;
+  @Input() game?: Content;
+  //fallout: Content;
+  //superMario: Content;
+  //gta: Content;
+  //contentList: ContentListComponent;
   constructor() {
-    this.fallout = {
+    /* this.fallout = {
       id: 1,
       title: 'Fallout',
       description: 'A post-appocalyptic RPG series',
@@ -39,13 +39,18 @@ export class ContentCardComponent implements OnInit {
       imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Grand_Theft_Auto_logo_series.svg/250px-Grand_Theft_Auto_logo_series.svg.png',
       type: 'Third Person Shooter',
       tags: ['Third Person Shooter', 'Crime', 'Open-world']
-    };
-    this.contentList = new ContentList(this.fallout);
-    this.contentList.setItems(this.superMario);
-    this.contentList.setItems(this.gta);
+    }; */
+    
+    //this.contentList = new ContentList(this.fallout);
+    //this.contentList.setItems(this.superMario);
+    //this.contentList.setItems(this.gta);
   }
 
   ngOnInit(): void {
+  }
+
+  logItem(): void {
+    console.log(`ID: ${this.game?.id}, Title: ${this.game?.title}`)
   }
 
 }

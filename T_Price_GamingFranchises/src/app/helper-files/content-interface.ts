@@ -1,11 +1,11 @@
 // Interface that will handle Content variables
 
 export interface Content {
-    id: number;
+    id?: number;
     title: string;
     description: string;
     creator: string;
-    imgURL: string;
-    type: string;
-    tags: string[];
+    imgURL?: string;
+    type?: string;
+    tags?: string[];
 }

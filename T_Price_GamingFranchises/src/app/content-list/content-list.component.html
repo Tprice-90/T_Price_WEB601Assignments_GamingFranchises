@@ -1,0 +1,16 @@
+<app-modify-content (newGameEvent)="addGameToList($event)"></app-modify-content>
+
+<div class="search">
+    <mat-form-field>
+        <mat-label for="search">Search Title</mat-label>
+        <input matInput name="search" #gameTitle>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="titleInput(gameTitle.value)">Submit</button>
+    <p [class.found]="searchFlag" [class.notFound]="!searchFlag"> {{ message }} </p>
+</div>
+
+<app-content-card appHoverAffect card="10px solid purple" class="rpg" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'RPG'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card appHoverAffect card="10px solid purple" class="platform" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'Platform'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card appHoverAffect card="10px solid purple" class="tps" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'Third Person Shooter'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card appHoverAffect card="10px solid purple" class="sport" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter : 'Sport'; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
+<app-content-card appHoverAffect card="10px solid purple" class="noType" [class.cardFound]="item.title.toLowerCase() == gameTitle.value.toLowerCase()" *ngFor="let item of contentList | typeFilter; first as isFirst"[game]='item'[class.first]='isFirst'></app-content-card>
