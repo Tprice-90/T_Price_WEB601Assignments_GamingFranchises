@@ -39,3 +39,10 @@ Seventh Assignment: Added ability to add content via mock "Server" component. Cr
                   
 
 ![Main Screen Image](/GamingFranchise.jpeg)
+
+Before implementing an Express.js backend, I'm going to update the Angular version from 13 to 14
+Issue encountered:
+    -After upgrade, game.services.ts had 4 issues with not finding @angular/core services.
+    -Resolved by changing baseUrl property in tsconfig.json from './' to 'src' then restarting VS Code
+    -Sollution found at: https://stackoverflow.com/questions/45903511/vscode-cannot-find-module-angular-core-or-any-other-modules
+    -Will monitor any more issues if they arise

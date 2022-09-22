@@ -28,42 +28,41 @@ import { environment } from '../environments/environment';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContentCardComponent,
-    ContentListComponent,
-    TypeFilterPipe,
-    HoverAffectDirective,
-    MessagesComponent,
-    ModifyContentComponent,
-    DialogBoxComponent,
-    ContentDetailComponent,
-    NotFoundPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-      delay: 500
-    }),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatDialogModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatBadgeModule,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    MatSnackBarModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [DialogBoxComponent],
+    declarations: [
+        AppComponent,
+        ContentCardComponent,
+        ContentListComponent,
+        TypeFilterPipe,
+        HoverAffectDirective,
+        MessagesComponent,
+        ModifyContentComponent,
+        DialogBoxComponent,
+        ContentDetailComponent,
+        NotFoundPageComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+            dataEncapsulation: false,
+            delay: 500
+        }),
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatInputModule,
+        MatDialogModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatBadgeModule,
+        AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        MatSnackBarModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
