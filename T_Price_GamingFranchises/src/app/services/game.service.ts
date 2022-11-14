@@ -4,11 +4,14 @@ import { Content } from '../helper-files/content-interface';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const baseURL = 'http://localhost:3000/api/games'
+
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  private httpOptions = {
+  /* Method used for localized CRUD 
+    private httpOptions = {
     headers: new HttpHeaders({ 'Content-type' : 'application/json' })
   }
 
@@ -31,5 +34,30 @@ export class GameService {
 
   updateContent(contentItem: Content): Observable<any>{
     return this.http.put("api/content", contentItem, this.httpOptions);
+  } */
+
+  // For Database CRUD
+  constructor(private messageService:MessageService, private http: HttpClient) {}
+  getContent(): Observable<Content[]> {
+    this.messageService.add("Content array loaded!");
+    return this.http.get<Content[]>(baseURL);
+  }
+
+  singleItem(idIndex: number): Observable<Content> {
+    return this.http.get<Content>(`${baseURL}/${idIndex}`);
+  }
+
+  addContent(newContentItem: Content): Observable<Content>{
+    console.log("added the new content: ", newContentItem);
+    this.messageService.add("Going to add game to the server!");
+    return this.http.post<Content>(baseURL, newContentItem);
+  }
+
+  updateContent(contentItem: Content): Observable<any>{
+    return this.http.put(baseURL, contentItem);
+  }
+
+  deleteContent(id: any): Observable<any>{
+    return this.http.delete(`${baseURL}/${id}`);
   }
 }
