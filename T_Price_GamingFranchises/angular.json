@@ -115,5 +115,8 @@
       }
     }
   },
-  "defaultProject": "T_Price_GamingFranchises"
+  "defaultProject": "T_Price_GamingFranchises",
+  "cli": {
+    "analytics": false
+  }
 }

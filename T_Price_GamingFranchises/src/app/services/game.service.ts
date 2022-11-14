@@ -4,7 +4,7 @@ import { Content } from '../helper-files/content-interface';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const baseURL = 'http://localhost:3000/api/games'
+const baseURL = 'http://localhost:3000/api/games/'
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,7 @@ export class GameService {
   addContent(newContentItem: Content): Observable<Content>{
     console.log("added the new content: ", newContentItem);
     this.messageService.add("Going to add game to the server!");
-    return this.http.post<Content>(baseURL, newContentItem);
+    return this.http.post<Content>(baseURL, JSON.stringify(newContentItem));
   }
 
   updateContent(contentItem: Content): Observable<any>{
